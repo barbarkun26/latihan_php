@@ -1,12 +1,14 @@
+<!-- @copyright : Akbar yanuar Sapura -->
+
 <?php
 
 // if ($_SERVER['REQUEST_METHOD'] == "POST") {
 if (isset($_POST['tampil'])) {
     $name = $_POST['name'];
-    $angka1 = floatval($_POST['angka1'] ?? 0);
-    $angka2 = floatval($_POST['angka2'] ?? 0);
-    $angka3 = floatval($_POST['angka3'] ?? 0);
-    $pilihan = floatval($_POST['pilihan'] ?? 0);
+    $angka1 = floatval($_POST['angka1']);
+    $angka2 = floatval($_POST['angka2']);
+    $angka3 = floatval($_POST['angka3']);
+    $pilihan = $_POST['pilihan'];
     $operator = $_POST['operator'];
     // $hasil = 0;
 
@@ -37,10 +39,16 @@ if (isset($_POST['tampil'])) {
             case 'tabung':
                 if ($pilihan == 'volume') {
                     return M_PI * pow($angka1, 2) * $angka2;
+                } else {
+                    return 2 * M_PI * $angka1($angka2 + $angka3);
                 }
                 break;
             case 'bola':
-                return $angka1 - $angka2;
+                if ($pilihan == 'volume') {
+                    return 4 / 3 * M_PI * pow($angka1, 3);
+                } else {
+                    return 4 * M_PI * pow($angka1, 2);
+                }
                 break;
 
             default:
@@ -48,6 +56,7 @@ if (isset($_POST['tampil'])) {
                 break;
         }
     }
+    echo "Nama Saya adalah " . $name . " hasilnya " .  hasilPerhitungan($angka1, $angka2, $angka3, $operator, $pilihan);
 
     // $hasil = $angka1 * $angka2;
 
@@ -68,14 +77,9 @@ if (isset($_POST['tampil'])) {
 
 <body>
     <form action="" method="post">
-        <label for="">Nama</label><br>
-        <input type="text" name="name"><br>
-        <label for="">Number 1</label><br>
-        <input type="number" name="angka1"><br>
-        <label for="">Number 2</label><br>
-        <input type="number" name="angka2"><br>
-        <label for="">Number 3</label><br>
-        <input type="number" name="angka3"><br>
+        <br>
+        <br>
+        <span>Pilih Bangun Ruang</span>
         <select name="operator" id="">
             <option value="kubus">Kubus</option>
             <option value="balok">balok</option>
@@ -83,10 +87,22 @@ if (isset($_POST['tampil'])) {
             <option value="tabung">tabung</option>
             <option value="bola">bola</option>
         </select>
+        <br>
+        <span>Pilih Operasi</span>
         <select name="pilihan" id="">
             <option value="luas">luas</option>
             <option value="volume">volume</option>
         </select>
+        <br>
+        <br>
+        <label for="">Nama</label><br>
+        <input type="text" name="name"><br>
+        <label for="">Sisi / Panjang / jari-jari</label><br>
+        <input type="number" name="angka1"><br>
+        <label for="">Lebar</label><br>
+        <input type="number" name="angka2"><br>
+        <label for="">Tinggi</label><br>
+        <input type="number" name="angka3"><br>
 
 
         <button type="submit" name="tampil">Tampilkan Data</button>
