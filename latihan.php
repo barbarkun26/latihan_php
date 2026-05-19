@@ -56,7 +56,6 @@ if (isset($_POST['tampil'])) {
                 break;
         }
     }
-    echo "Nama Saya adalah " . $name . " hasilnya " .  hasilPerhitungan($angka1, $angka2, $angka3, $operator, $pilihan);
 
     // $hasil = $angka1 * $angka2;
 
@@ -77,9 +76,14 @@ if (isset($_POST['tampil'])) {
 
 <body>
     <form action="" method="post">
-        <br>
-        <br>
-        <span>Pilih Bangun Ruang</span>
+        <label for="">Nama</label><br>
+        <input type="text" name="name"><br>
+        <label for="">Number 1</label><br>
+        <input type="number" name="angka1"><br>
+        <label for="">Number 2</label><br>
+        <input type="number" name="angka2"><br>
+        <label for="">Number 3</label><br>
+        <input type="number" name="angka3"><br>
         <select name="operator" id="">
             <option value="kubus">Kubus</option>
             <option value="balok">balok</option>
