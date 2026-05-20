@@ -1,16 +1,23 @@
 <?php
+// untuk mulai sesi saat login
 session_start();
+// mengenerate value saat login 
 session_regenerate_id();
+include "config/koneksi.php";
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = sha1($_POST['password']);
 
-    $dataNama = "anton asoy";
-    $dataEmail = "anton@gmail.com";
-    $dataPassword = "12345678";
+    $login = mysqli_query($koneksi, "SELECT * FROM users WHERE email = '$email' ");
+    // mengambil satu data saja (assoc)
+    $rowLogin = mysqli_fetch_assoc($login);
 
-    if ($email == $dataEmail && $password == $dataPassword) {
-        $_SESSION['NAMA'] = $dataNama;
+    // $dataNama = "anton asoy";
+    // $dataEmail = "anton@gmail.com";
+    // $dataPassword = "12345678";
+
+    if ($email == $rowLogin['email'] && $password == $rowLogin['password']) {
+        $_SESSION['NAMA'] = $rowLogin['name'];
         header("location:main.php?page=dashboard");
     } else {
         header("location:index.php");

@@ -59,7 +59,7 @@ if (isset($_POST['tampil'])) {
 
     // $hasil = $angka1 * $angka2;
 
-
+    echo "Nama Saya adalah " . $name . " hasilnya " .  hasilPerhitungan($angka1, $angka2, $angka3, $operator, $pilihan);
 }
 
 
@@ -74,15 +74,19 @@ if (isset($_POST['tampil'])) {
     <title>Document</title>
 </head>
 
+<!-- di dalam tombol input ada step ="any" -->
+<!-- untuk bisa dapat memberikan nilai menggunakan koma atau titik di dalam pemrograman -->
+
 <body>
     <form action="" method="post">
         <label for="">Nama</label><br>
         <input type="text" name="name"><br>
-        <label for="">Number 1</label><br>
+
+        <label for="">Sisi / Panjang / jari-jari</label><br>
         <input type="number" name="angka1"><br>
-        <label for="">Number 2</label><br>
+        <label for="">Lebar</label><br>
         <input type="number" name="angka2"><br>
-        <label for="">Number 3</label><br>
+        <label for="">Tinggi</label><br>
         <input type="number" name="angka3"><br>
         <select name="operator" id="">
             <option value="kubus">Kubus</option>
@@ -99,14 +103,7 @@ if (isset($_POST['tampil'])) {
         </select>
         <br>
         <br>
-        <label for="">Nama</label><br>
-        <input type="text" name="name"><br>
-        <label for="">Sisi / Panjang / jari-jari</label><br>
-        <input type="number" name="angka1"><br>
-        <label for="">Lebar</label><br>
-        <input type="number" name="angka2"><br>
-        <label for="">Tinggi</label><br>
-        <input type="number" name="angka3"><br>
+
 
 
         <button type="submit" name="tampil">Tampilkan Data</button>
