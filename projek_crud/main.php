@@ -4,6 +4,8 @@ session_regenerate_id();
 ob_start();
 include "config/koneksi.php";
 include "config/function.php";
+include "config/helper.php";
+
 
 if (!isset($_SESSION['NAMA'])) {
     header("location:index.php");

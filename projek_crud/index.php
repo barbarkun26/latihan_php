@@ -1,3 +1,9 @@
+<!-- 
+var system / superglobal
+
+-->
+
+
 <?php
 // untuk mulai sesi saat login
 session_start();
@@ -5,7 +11,7 @@ session_start();
 session_regenerate_id();
 include "config/koneksi.php";
 if (isset($_POST['login'])) {
-    $email = $_POST['email'];
+    $email = htmlspecialchars($_POST['email']);
     $password = sha1($_POST['password']);
 
     $login = mysqli_query($koneksi, "SELECT * FROM users WHERE email = '$email' ");

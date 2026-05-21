@@ -65,8 +65,14 @@
         </li>
         <li class="menu-item ">
             <a href="?page=user" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Analytics">users</div>
+            </a>
+        </li>
+        <li class="menu-item ">
+            <a href="?page=role" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-"></i>
+                <div data-i18n="Analytics">Roles</div>
             </a>
         </li>
 
