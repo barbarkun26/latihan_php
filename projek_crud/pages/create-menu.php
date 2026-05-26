@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['simpan'])) {
 
-
     $name = htmlspecialchars($_POST['name']);
     $parent_id = htmlspecialchars($_POST['parent_id']) ?: 'NULL';
     $url = htmlspecialchars($_POST['url']);
@@ -25,7 +24,6 @@ if ($editId > 0) {
 }
 
 if (isset($_POST['edit'])) {
-
 
     $name = htmlspecialchars($_POST['name']);
     $parent_id = htmlspecialchars($_POST['parent_id']) ?: 'NULL';
