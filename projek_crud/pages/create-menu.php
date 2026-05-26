@@ -80,8 +80,8 @@ $rowParent = mysqli_fetch_all($queryParent, MYSQLI_ASSOC)
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label class="form-label" for="url">Sort Order</label>
-                        <input id="url" type="text" name="sort_order" class="form-control"
+                        <label class="form-label" for="sort_order">Sort Order</label>
+                        <input id="sort_order" type="text" name="sort_order" class="form-control"
                             value="<?= $editId > 0 ? htmlspecialchars($edit['sort_order']) : '' ?>">
                     </div>
                 </div>
